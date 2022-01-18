@@ -17,7 +17,7 @@
         <tbody>
         @foreach($rateDateList as $date => $rateItemList)
             <tr>
-                <th scope="row">{{ date('d/m/Y', strtotime($date)) }}</th>
+                <th scope="row">{{ date('m/d/Y', strtotime($date)) }}</th>
                 @foreach($currencyList as $currency)
                     <td>{!! !empty($rateItemList[$currency]) ? $rateItemList[$currency]['value'] : 0 !!}</td>
                 @endforeach
@@ -29,7 +29,7 @@
     @foreach($bestRevenueList as $key => $bestRevenue)
         <p>
             Best revenue for {{ $key }}:
-            {{ date('d/m/Y', strtotime($bestRevenue['buy_date'])) }} - {{ date('d/m/Y', strtotime($bestRevenue['sell_date'])) }}
+            {{ date('m/d/Y', strtotime($bestRevenue['buy_date'])) }} - {{ date('m/d/Y', strtotime($bestRevenue['sell_date'])) }}
             ( {{ number_format($bestRevenue['revenue'], 2) }}$ )
         </p>
     @endforeach
