@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+        <p>Type all input and click "Submit" button</p>
         <div class="row">
             <div class="col-4">
                 <label>From date: </label>
@@ -36,9 +37,7 @@
 
 @section('js')
     <script type="text/javascript">
-        console.log(123);
-
-        // Data Picker Initialization
+        // Data Picker
         $(function () {
             $("#from-datepicker").datepicker({
                 autoclose: true,
@@ -65,10 +64,11 @@
                     success: function(result) {
                         if (result.status === 'success') {
                             $("#rate-table").html(result.data);
-                        } else {
-                            alert(result.message);
                         }
                     },
+                    error: function(error) {
+                        alert(error.responseJSON.message);
+                    }
                 });
             });
         });

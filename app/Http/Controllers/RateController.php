@@ -41,7 +41,11 @@ class RateController extends Controller
                 'amount' => 'required|numeric'
             ]);
             if ($validator->fails()) {
-                return response()->json($validator->errors(), 422);
+                return response()->json([
+                    'status' => 'failed',
+                    'errors' => $validator->errors(),
+                    'message' => 'Some fields is invalid!'
+                ], 422);
             }
 
             $data = $validator->validated();
