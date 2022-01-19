@@ -43,7 +43,7 @@ class RateDbRepository implements RateRepositoryInterface
      * @param array $request
      * @return array
      */
-    public function getList(array $request)
+    public function getPaginationList(array $request)
     {
         $query = Rate::query();
 

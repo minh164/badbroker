@@ -28,6 +28,8 @@ class RateController extends Controller
 
     /**
      * Display a listing of the resource.
+     * Because my Subscription Plan of ExchangeRates service does not support "fluctuation" api
+     * So I store each rate from ExchangeRates service into DB (rates table) to fake data
      *
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
@@ -78,8 +80,13 @@ class RateController extends Controller
 
     /**
      * Store multi data from ExchangeRates.
+     * Because my Subscription Plan of ExchangeRates service does not support "fluctuation" api
+     * So I store each rate from ExchangeRates service into DB (rates table) to fake data
      *
      * @param StoreDataFromServiceRequest $request
+     * start_date: "date" you want to get data
+     * days: number of days you want to get
+     * symbols: currencies
      * @return \Illuminate\Http\JsonResponse
      */
     public function storeDataFromService(Request $request)
