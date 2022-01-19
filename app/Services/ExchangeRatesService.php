@@ -17,7 +17,7 @@ class ExchangeRatesService extends BaseService
     }
 
     /**
-     * Add access key for argument were passed into
+     * Add access key for argument was passed into
      * @param array $current_params
      * @return mixed
      */
